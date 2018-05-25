@@ -25,12 +25,15 @@ public class School {
   private float atlagSze;
   private float atlagSzePhe;
   private float atlagCshi;
+  private int vanMat;
+  private int vanSze;
+  private int vanCshi;
   private int n;
   private float aranyMat;
   private float aranySze;
   private float aranyCshi;
 
-  public School(String name, String telepules, int rangMat, int rangMatPhe, int rangSze, int rangSzePhe, int rangTeszt, int rangPhe, int omid, int telephely, String tipus, float atlagMat, float atlagMatPhe, float atlagSze, float atlagSzePhe, float atlagCshi, int n, float aranyMat, float aranySze, float aranyCshi) {
+  public School(String name, String telepules, int rangMat, int rangMatPhe, int rangSze, int rangSzePhe, int rangTeszt, int rangPhe, int omid, int telephely, String tipus, float atlagMat, float atlagMatPhe, float atlagSze, float atlagSzePhe, float atlagCshi, int vanMat, int vanSze, int vanCshi, int n, float aranyMat, float aranySze, float aranyCshi) {
     this.name = name;
     this.telepules = telepules;
     this.rangMat = rangMat;
@@ -47,6 +50,9 @@ public class School {
     this.atlagSze = atlagSze;
     this.atlagSzePhe = atlagSzePhe;
     this.atlagCshi = atlagCshi;
+    this.vanMat = vanMat;
+    this.vanSze = vanSze;
+    this.vanCshi = vanCshi;
     this.n = n;
     this.aranyMat = aranyMat;
     this.aranySze = aranySze;
