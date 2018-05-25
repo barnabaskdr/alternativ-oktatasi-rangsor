@@ -1,8 +1,8 @@
-package com.greenfoxacademy.sqlspringpractice.controllers;
+package com.pingithefrosty.oktapp.controllers;
 
-import com.greenfoxacademy.sqlspringpractice.factories.AssigneeFactory;
-import com.greenfoxacademy.sqlspringpractice.models.Assignee;
-import com.greenfoxacademy.sqlspringpractice.services.AssigneeService;
+import com.pingithefrosty.oktapp.factories.AssigneeFactory;
+import com.pingithefrosty.oktapp.models.Assignee;
+import com.pingithefrosty.oktapp.services.AssigneeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

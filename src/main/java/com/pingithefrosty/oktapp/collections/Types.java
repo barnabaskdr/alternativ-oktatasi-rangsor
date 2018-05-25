@@ -1,4 +1,4 @@
-package com.greenfoxacademy.sqlspringpractice.collections;
+package com.pingithefrosty.oktapp.collections;
 
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
-package com.greenfoxacademy.sqlspringpractice.services;
+package com.pingithefrosty.oktapp.services;
 
-import com.greenfoxacademy.sqlspringpractice.models.Assignee;
+import com.pingithefrosty.oktapp.models.Assignee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

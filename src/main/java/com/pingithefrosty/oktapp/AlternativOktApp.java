@@ -1,13 +1,13 @@
-package com.greenfoxacademy.sqlspringpractice;
+package com.pingithefrosty.oktapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class SqlspringpracticeApplication {
+public class AlternativOktApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SqlspringpracticeApplication.class, args);
+		SpringApplication.run(AlternativOktApp.class, args);
 	}
 }

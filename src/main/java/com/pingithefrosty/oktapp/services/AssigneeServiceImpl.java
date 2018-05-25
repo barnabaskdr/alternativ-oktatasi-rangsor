@@ -1,7 +1,7 @@
-package com.greenfoxacademy.sqlspringpractice.services;
+package com.pingithefrosty.oktapp.services;
 
-import com.greenfoxacademy.sqlspringpractice.models.Assignee;
-import com.greenfoxacademy.sqlspringpractice.repositories.AssigneeRepository;
+import com.pingithefrosty.oktapp.models.Assignee;
+import com.pingithefrosty.oktapp.repositories.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

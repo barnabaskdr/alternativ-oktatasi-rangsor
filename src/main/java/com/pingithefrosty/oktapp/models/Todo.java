@@ -1,4 +1,4 @@
-package com.greenfoxacademy.sqlspringpractice.models;
+package com.pingithefrosty.oktapp.models;
 
 import javax.persistence.*;
 

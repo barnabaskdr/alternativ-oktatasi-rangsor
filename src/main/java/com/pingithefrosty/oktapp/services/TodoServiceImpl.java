@@ -1,7 +1,7 @@
-package com.greenfoxacademy.sqlspringpractice.services;
+package com.pingithefrosty.oktapp.services;
 
-import com.greenfoxacademy.sqlspringpractice.models.Todo;
-import com.greenfoxacademy.sqlspringpractice.repositories.TodoRepository;
+import com.pingithefrosty.oktapp.models.Todo;
+import com.pingithefrosty.oktapp.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

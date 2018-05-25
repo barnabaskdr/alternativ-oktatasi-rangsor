@@ -1,6 +1,6 @@
-package com.greenfoxacademy.sqlspringpractice.factories;
+package com.pingithefrosty.oktapp.factories;
 
-import com.greenfoxacademy.sqlspringpractice.models.Todo;
+import com.pingithefrosty.oktapp.models.Todo;
 import org.springframework.stereotype.Component;
 
 @Component

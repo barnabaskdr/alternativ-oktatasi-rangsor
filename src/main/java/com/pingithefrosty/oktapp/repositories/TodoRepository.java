@@ -1,6 +1,6 @@
-package com.greenfoxacademy.sqlspringpractice.repositories;
+package com.pingithefrosty.oktapp.repositories;
 
-import com.greenfoxacademy.sqlspringpractice.models.Todo;
+import com.pingithefrosty.oktapp.models.Todo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

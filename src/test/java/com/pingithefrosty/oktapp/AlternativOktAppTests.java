@@ -1,4 +1,4 @@
-package com.greenfoxacademy.sqlspringpractice;
+package com.pingithefrosty.oktapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SqlspringpracticeApplicationTests {
+public class AlternativOktAppTests {
 
 	@Test
 	public void contextLoads() {
