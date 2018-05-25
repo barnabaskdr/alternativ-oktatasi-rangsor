@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Todo</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+</head>
+<body class="container-fluid">
+    <div class="container">
+        <h1 th:text="'Edit Todo with id ' + ${todo.id}"></h1>
+    </div>
+    <table class="container">
+        <form action="#" th:action="@{/todos/edit/} + ${todo.id}" th:object="${todo}" method="post">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>IS DONE</th>
+                    <th>IS URGENT</th>
+                    <th>ASSIGNEE</th>
+                    <th>TYPE</th>
+                    <th>EDIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label th:field="*{id}" th:text="*{id}"></label>
+                    </td>
+                    <td>
+                        <input id="todo_name" type="text" th:field="*{title}"/>
+                    </td>
+                    <td>
+                        <input id="isDone" type="checkbox" th:field="*{isDone}"/>
+                    </td>
+                    <td>
+                        <input id="isUrgent" type="checkbox" th:field="*{isUrgent}"/>
+                    </td>
+                    <td>
+                        <input id="assignee_name" type="text" th:field="*{assignee}"/>
+                    </td>
+                    <td>
+                        <select th:field="*{todoType}">
+                            <option th:each="type : ${todoTypes}"
+                                    th:value="${type}"
+                                    th:text="${type}"
+                            ></option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-success" value="Edit"/>
+                    </td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>

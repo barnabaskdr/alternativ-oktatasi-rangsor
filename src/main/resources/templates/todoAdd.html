@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Todo</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+</head>
+<body class="container-fluid">
+    <table class="container">
+        <form action="#" th:action="@{/todos/add}" th:object="${newTodo}" method="post">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>IS DONE</th>
+                    <th>IS URGENT</th>
+                    <th>ASSIGNEE</th>
+                    <th>TYPE</th>
+                    <th>ADD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="hidden" th:field="*{id}"/>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{title}"/>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:field="*{isUrgent}"/>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:field="*{isDone}"/>
+                    </td>
+                    <td>
+                        <input id="assignee_name" type="text" th:field="*{assignee}"/>
+                    </td>
+                    <td>
+                        <select th:field="*{todoType}">
+                            <option th:each="type : ${todoTypes}" th:value="${type}" th:text="${type}"></option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-success" value="Add Todo"/>
+                    </td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo App Login</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+</head>
+<body class="container-fluid">
+    <div class="container">
+        <h1>Register</h1>
+    </div>
+    <div class="container">
+        <table class="table-responsive">
+            <form action="#" th:action="@{/assignee/add}" th:object="${newAssignee}" method="post">
+                <thead>
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>PASSWORD</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input id="new_user_name" type="text" th:field="*{name}"/>
+                        </td>
+                        <td>
+                            <input id="new_user_pass" type="text" th:field="*{password}"/>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-success" value="Register"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+    </div>
+    <div class="container">
+        <h1>Login</h1>
+    </div>
+    <div class="container">
+        <table class="table-responsive">
+            <form action="#" th:action="@{/assignee}" th:object="${assignee}" method="post">
+                <thead>
+                <tr>
+                    <th>USERNAME</th>
+                    <th>PASSWORD</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <input id="user_name" type="text" th:field="*{name}"/>
+                    </td>
+                    <td>
+                        <input id="user_pass" type="text" th:field="*{password}"/>
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-success" value="Login"/>
+                    </td>
+                </tr>
+                </tbody>
+            </form>
+        </table>
+    </div>
+</body>
+</html>

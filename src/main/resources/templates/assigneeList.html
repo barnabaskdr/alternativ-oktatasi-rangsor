@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Assignees</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="container">
+        <h1>Todos for today</h1>
+    </div>
+    <div class="container form-group">
+        <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table style="width:100%" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>NR OF TODOS</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr th:each="assignee:${assignees}">
+                        <td th:text="${assignee.id}" />
+                        <td th:text="${assignee.name}" />
+                        <td th:text="${assignee.email}" />
+                        <td th:text="${assignee.todos}" />
+                        <td>
+                            <form action="#" th:action="@{/assignee/edit/} + *{assignee.id}" method="get">
+                                <input class="btn btn-primary" type="submit" value="Edit"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="#" th:action="@{/assignee/delete/} + *{assignee.id}" method="post">
+                                <input class="btn btn-danger" type="submit" value="Delete"/>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <form action="#" th:action="@{/assignee/add/}" method="get">
+            <input class="btn btn-success" type="submit" value="Add Assignee"/>
+        </form>
+    </div>
+</body>
+</html>
