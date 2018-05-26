@@ -1,6 +1,7 @@
 package com.pingithefrosty.oktapp.controllers;
 
 import com.pingithefrosty.oktapp.models.School;
+import com.pingithefrosty.oktapp.services.DataImportService;
 import com.pingithefrosty.oktapp.services.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,13 @@ public class SchoolController {
 
   @Autowired
   SchoolService schoolService;
+
+  @Autowired
+  DataImportService dataImportService;
+
+  public void getDataImportService() {
+    dataImportService.startImport();
+  }
 
   @GetMapping("/school")
   public String showSchools(Model model) {

@@ -35,66 +35,28 @@
             <table style="width:100%" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID<th>
-                        <th>IS DONE</th>
-                        <th>IS URGENT</th>
-                        <th>TITLE</th>
-                        <th>TYPE</th>
-                        <th>ASSIGNEE</th>
-                        <th>EDIT</th>
-                        <th>DELETE</th>
                         <th>Id</th>
-                        <th>Név</th>
-                        <th>Település</th>
-                        <th>Rangsorszám MAT szerint</th>
-                        <th>Rangsorszám MAT PHÉ szerint</th>
-                        <th>Rangsorszám SZÉ szerint</th>
-                        <th>Rangsorszám SZÉ PHÉ szerint</th>
-                        <th>Rangsorszám a teszteredmények alapján</th>
-                        <th>Rangsorszám a PHÉ alapján</th>
-                        <th>OMid</th>
-                        <th>Telephely kódja</th>
-                        <th>Típus</th>
-                        <th>MAT tesztátlag</th>
-                        <th>MAT PHÉ átlag</th>
-                        <th>SZÉ tesztátlag</th>
-                        <th>SZÉ PHÉ átlag</th>
-                        <th>CSHI átlag</th>
-                        <th>Van MAT</th>
-                        <th>Van SZÉ</th>
-                        <th>Van CSHI</th>
-                        <th>N</th>
-                        <th>Van MAT arány</th>
-                        <th>Van SZÉ arány</th>
-                        <th>Van CSHI arány</th>
+                        <th>iskolaId</th>
+                        <th>telephelyId</th>
+                        <th>matekFejl</th>
+                        <th>szovegFejl</th>
+                        <th>n</th>
+                        <th>iskolaNeve</th>
+                        <th>telepulesNeve</th>
+                        <th>ev</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
                     <tr th:each="school:${schools}">
                         <td th:text="${school.id}" />
-                        <td th:text="${school.name}" />
-                        <td th:text="${school.telepules}" />
-                        <td th:text="${school.rangMat}" />
-                        <td th:text="${school.rangMatPhe}" />
-                        <td th:text="${school.rangSze}" />
-                        <td th:text="${school.rangSzePhe}" />
-                        <td th:text="${school.rangTeszt}" />
-                        <td th:text="${school.rangPhe}" />
-                        <td th:text="${school.omid}" />
-                        <td th:text="${school.telephely}" />
-                        <td th:text="${school.tipus}" />
-                        <td th:text="${school.atlagMat}" />
-                        <td th:text="${school.atlagMatPhe}" />
-                        <td th:text="${school.atlagSze}" />
-                        <td th:text="${school.atlagSzePhe}" />
-                        <td th:text="${school.atlagCshi}" />
-                        <td th:text="${school.vanMat}" />
-                        <td th:text="${school.vanSze}" />
-                        <td th:text="${school.vanCshi}" />
+                        <td th:text="${school.iskolaId}" />
+                        <td th:text="${school.telephelyId}" />
+                        <td th:text="${school.matekFejl}" />
+                        <td th:text="${school.szovegFejl}" />
                         <td th:text="${school.n}" />
-                        <td th:text="${school.aranyMat}" />
-                        <td th:text="${school.aranySze}" />
-                        <td th:text="${school.aranyCshi}" />
+                        <td th:text="${school.iskolaNeve}" />
+                        <td th:text="${school.telepulesNeve}" />
+                        <td th:text="${school.ev}" />
                     </tr>
                 </tbody>
             </table>

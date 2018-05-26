@@ -26,7 +26,7 @@ public class SchoolServiceImpl implements SchoolService{
 
   @Override
   public List<School> findByName(String name) {
-    return schoolRepository.findByName(name);
+    return null;
   }
 
   @Override

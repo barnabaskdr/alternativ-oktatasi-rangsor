@@ -2,6 +2,7 @@ package com.pingithefrosty.oktapp.services;
 
 import com.pingithefrosty.oktapp.models.School;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+@Service
 public class DataImportService {
   public static ArrayList<School> schoolList = new ArrayList<>();
   public static ArrayList<String> schoolsAsString = new ArrayList<>();
@@ -37,7 +39,7 @@ public class DataImportService {
   }
 
   private static void createSchoolObjects() {
-    for (int i = 1; i < schoolsAsString.size() ; i++) {
+    for (int i = 1; i < 20 ; i++) {
       School school = new School();
       String[] columns = schoolsAsString.get(i).split(CSVSEPARATOR);
       //school.setId(Integer.parseInt(columns[0]));
@@ -49,6 +51,7 @@ public class DataImportService {
       school.setIskolaNeve(columns[6]);
       school.setTelepulesNeve(columns[7]);
       school.setEv(Integer.parseInt(columns[8]));
+      schoolList.add(school);
     }
   }
 

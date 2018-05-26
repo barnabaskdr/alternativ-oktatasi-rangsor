@@ -1,6 +1,5 @@
 package com.pingithefrosty.oktapp.services;
 
-import com.pingithefrosty.oktapp.models.Assignee;
 import com.pingithefrosty.oktapp.models.School;
 import org.springframework.stereotype.Service;
 
