@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AltOktApp</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+</head>
+<body class="container-fluid">
+    <div class="container">
+        <h1>Üdvözlet</h1>
+    </div>
+    <div class="container">
+        <p>Ez a Mr. 3% csapat Hackatlon appja.</p>
+    </div>
+    <div class="container">
+        <form action="#" th:action="@{/school/}" method="get">
+            <input class="btn btn-primary" type="submit" value="Ranglistát nézek"/>
+        </form>
+    </div>
+</body>
+</html>

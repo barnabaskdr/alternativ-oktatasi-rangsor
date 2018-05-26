@@ -13,5 +13,5 @@ public interface SchoolService {
   List<School> findByName(String name);
   void addAllSchools(ArrayList<School> allSchools);
   void addAllSchoolsByOne (ArrayList<School> allSchools);
-
+  List<School> getAllSchoolsByEv(int ev);
 }

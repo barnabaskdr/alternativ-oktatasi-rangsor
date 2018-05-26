@@ -25,6 +25,11 @@
 </head>
 <body class="container-fluid">
     <div class="container">
+        <form action="#" th:action="@{/}" method="get">
+            <input class="btn btn-default" type="submit" value="Vissza a kezdőoldalra"/>
+        </form>
+    </div>
+    <div class="container">
         <h1>Schools</h1>
     </div>
     <div class="container form-group">
@@ -35,27 +40,21 @@
             <table style="width:100%" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>iskolaId</th>
-                        <th>telephelyId</th>
-                        <th>matekFejl</th>
-                        <th>szovegFejl</th>
-                        <th>n</th>
-                        <th>iskolaNeve</th>
-                        <th>telepulesNeve</th>
-                        <th>ev</th>
+                        <th>Iskola</th>
+                        <th>Település</th>
+                        <th>Matek eredmény</th>
+                        <th>Szövegértés eredmény</th>
+                        <th>Kitöltők száma</th>
+                        <th>Év</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
                     <tr th:each="school:${schools}">
-                        <td th:text="${school.id}" />
-                        <td th:text="${school.iskolaId}" />
-                        <td th:text="${school.telephelyId}" />
+                        <td th:text="${school.iskolaNeve}" />
+                        <td th:text="${school.telepulesNeve}" />
                         <td th:text="${school.matekFejl}" />
                         <td th:text="${school.szovegFejl}" />
                         <td th:text="${school.n}" />
-                        <td th:text="${school.iskolaNeve}" />
-                        <td th:text="${school.telepulesNeve}" />
                         <td th:text="${school.ev}" />
                     </tr>
                 </tbody>

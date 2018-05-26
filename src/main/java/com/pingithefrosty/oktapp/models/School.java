@@ -20,10 +20,14 @@ public class School {
   private int id;
   private int iskolaId;
   private int telephelyId;
+  @Column(name = "matematika_fejlodes")
   private String matekFejl;
+  @Column(name = "szovegertes_fejlodes")
   private String szovegFejl;
+  @Column(name = "kitoltok_szama")
   private int n;
   private String iskolaNeve;
+  @Column(name = "település")
   private String telepulesNeve;
   private int ev;
 

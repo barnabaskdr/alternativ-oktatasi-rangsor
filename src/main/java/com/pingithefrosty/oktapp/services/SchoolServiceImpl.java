@@ -41,4 +41,9 @@ public class SchoolServiceImpl implements SchoolService{
     }
   }
 
+  @Override
+  public List<School> getAllSchoolsByEv(int ev) {
+    return schoolRepository.getAllByEv(ev);
+  }
+
 }
