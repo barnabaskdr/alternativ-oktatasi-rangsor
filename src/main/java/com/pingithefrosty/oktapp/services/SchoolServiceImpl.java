@@ -34,4 +34,11 @@ public class SchoolServiceImpl implements SchoolService{
     schoolRepository.save(allSchools);
   }
 
+  @Override
+  public void addAllSchoolsByOne(ArrayList<School> allSchools) {
+    for (int i = 0; i < allSchools.size(); i++) {
+      schoolRepository.save(allSchools.get(i));
+    }
+  }
+
 }

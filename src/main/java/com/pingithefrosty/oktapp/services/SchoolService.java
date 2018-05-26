@@ -12,5 +12,6 @@ public interface SchoolService {
   School getSchoolById(int id);
   List<School> findByName(String name);
   void addAllSchools(ArrayList<School> allSchools);
+  void addAllSchoolsByOne (ArrayList<School> allSchools);
 
 }

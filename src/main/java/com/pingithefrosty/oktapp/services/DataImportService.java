@@ -20,11 +20,11 @@ public class DataImportService {
   static
   SchoolService schoolService;
 
-  public static void startImport() {
+/*  public static void startImport() {
     importFile();
     createSchoolObjects();
     schoolService.addAllSchools(schoolList);
-  }
+  }*/
 
   private static void importFile() {
     String csvFile = "C:\\Users\\Asus\\Git\\alternativ-oktatasi-rangsor\\data\\rangsor.csv";
@@ -39,7 +39,7 @@ public class DataImportService {
   }
 
   private static void createSchoolObjects() {
-    for (int i = 1; i < 20 ; i++) {
+    for (int i = 1; i < schoolsAsString.size() ; i++) {
       School school = new School();
       String[] columns = schoolsAsString.get(i).split(CSVSEPARATOR);
       //school.setId(Integer.parseInt(columns[0]));
