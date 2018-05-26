@@ -1,6 +1,7 @@
 package com.pingithefrosty.oktapp.services;
 
 import com.pingithefrosty.oktapp.models.School;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,15 +12,20 @@ import java.util.ArrayList;
 public class DataImportService {
   public static ArrayList<School> schoolList = new ArrayList<>();
   public static ArrayList<String> schoolsAsString = new ArrayList<>();
-  public static final String CSVSEPARATOR = "|";
+  public static final String CSVSEPARATOR = "\\|";
+
+  @Autowired
+  static
+  SchoolService schoolService;
 
   public static void startImport() {
     importFile();
     createSchoolObjects();
+    schoolService.addAllSchools(schoolList);
   }
 
   private static void importFile() {
-    String csvFile = "/data/nahalka_2012.csv";
+    String csvFile = "C:\\Users\\Asus\\Git\\alternativ-oktatasi-rangsor\\data\\rangsor.csv";
     String line = "";
     try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
       while ((line = br.readLine()) != null) {
@@ -31,33 +37,18 @@ public class DataImportService {
   }
 
   private static void createSchoolObjects() {
-    for (int i = 0; i < schoolsAsString.size() ; i++) {
+    for (int i = 1; i < schoolsAsString.size() ; i++) {
       School school = new School();
       String[] columns = schoolsAsString.get(i).split(CSVSEPARATOR);
       //school.setId(Integer.parseInt(columns[0]));
-      school.setName(columns[1]);
-      school.setTelepules(columns[2]);
-      school.setRangMat(Integer.parseInt(columns[3]));
-      school.setRangMatPhe(Integer.parseInt(columns[4]));
-      school.setRangSze(Integer.parseInt(columns[5]));
-      school.setRangSzePhe(Integer.parseInt(columns[6]));
-      school.setRangTeszt(Integer.parseInt(columns[7]));
-      school.setRangPhe(Integer.parseInt(columns[8]));
-      school.setOmid(Integer.parseInt(columns[9]));
-      school.setTelephely(Integer.parseInt(columns[10]));
-      school.setTipus(columns[11]);
-      school.setAtlagMat(Float.parseFloat(columns[12]));
-      school.setAtlagMatPhe(Float.parseFloat(columns[13]));
-      school.setAtlagSze(Float.parseFloat(columns[14]));
-      school.setAtlagSzePhe(Float.parseFloat(columns[15]));
-      school.setAtlagCshi(Float.parseFloat(columns[16]));
-      school.setVanMat(Integer.parseInt(columns[17]));
-      school.setVanSze(Integer.parseInt(columns[18]));
-      school.setVanCshi(Integer.parseInt(columns[19]));
-      school.setN(Integer.parseInt(columns[20]));
-      school.setAranyMat(Float.parseFloat(columns[21]));
-      school.setAranySze(Float.parseFloat(columns[22]));
-      school.setAranyCshi(Float.parseFloat(columns[23]));
+      school.setIskolaId(Integer.parseInt(columns[1]));
+      school.setTelephelyId(Integer.parseInt(columns[2]));
+      school.setMatekFejl(columns[3]);
+      school.setSzovegFejl(columns[4]);
+      school.setN(Integer.parseInt(columns[5]));
+      school.setIskolaNeve(columns[6]);
+      school.setTelepulesNeve(columns[7]);
+      school.setEv(Integer.parseInt(columns[8]));
     }
   }
 

@@ -16,4 +16,5 @@ public class AlternativOktApp {
 		DataImportService.startImport();
 		SpringApplication.run(AlternativOktApp.class, args);
 	}
+
 }

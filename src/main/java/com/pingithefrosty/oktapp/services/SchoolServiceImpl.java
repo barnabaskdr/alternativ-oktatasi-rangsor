@@ -5,6 +5,7 @@ import com.pingithefrosty.oktapp.repositories.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,6 +27,11 @@ public class SchoolServiceImpl implements SchoolService{
   @Override
   public List<School> findByName(String name) {
     return schoolRepository.findByName(name);
+  }
+
+  @Override
+  public void addAllSchools(ArrayList<School> allSchools) {
+    schoolRepository.save(allSchools);
   }
 
 }
