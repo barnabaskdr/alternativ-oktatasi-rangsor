@@ -11,5 +11,7 @@ import java.util.List;
 public interface SchoolRepository extends CrudRepository<School, Integer> {
   ArrayList<School> getAllByEv(int ev);
   School findSchoolByIskolaNeve(String nev);
+  School findSchoolByMatekFejl(String matek);
+  School findSchoolBySzovegFejl(String szoveg);
 
 }

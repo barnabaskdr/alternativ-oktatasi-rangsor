@@ -70,8 +70,49 @@ public class SchoolServiceImpl implements SchoolService{
   }
 
   @Override
-  public List<School> sortByNumber(ArrayList<School> someSchools) {
-    return null;
+  public List<School> sortByNumber(ArrayList<School> someSchools, String field) {
+    return numSortedSchoolsFromSortedNumbers(sortedNumbersFromSchools(someSchools, field), field);
+  }
+
+  @Override
+  public List<School> reverseSortByAbc(ArrayList<School> someSchools) {
+    Collections.reverse(sortByAbc(someSchools));
+    return someSchools;
+  }
+
+  @Override
+  public List<School> reverseSortByNumber(ArrayList<School> someSchools, String field) {
+    Collections.reverse(sortByNumber(someSchools, field));
+    return someSchools;
+  }
+
+  private ArrayList<String> sortedNumbersFromSchools(ArrayList<School> someSchools, String field) {
+    ArrayList<String> schoolNumbers = new ArrayList<>();
+    if (field.equals("matek")) {
+      for (School someSchool : someSchools) {
+        schoolNumbers.add(someSchool.getMatekFejl());
+      }
+    } else if (field.equals("szoveg")) {
+        for (School someSchool : someSchools) {
+          schoolNumbers.add(someSchool.getSzovegFejl());
+      }
+    }
+    Collections.sort(schoolNumbers);
+    return schoolNumbers;
+  }
+
+  private List<School> numSortedSchoolsFromSortedNumbers(ArrayList<String> sortedNumbers, String field) {
+    ArrayList<School> sortedSchools = new ArrayList<>();
+    if (field.equals("matek")) {
+      for (String sortedNumber : sortedNumbers) {
+        sortedSchools.add(schoolRepository.findSchoolByMatekFejl(sortedNumber));
+      }
+    } else if (field.equals("szoveg")) {
+      for (String sortedNumber : sortedNumbers) {
+        sortedSchools.add(schoolRepository.findSchoolBySzovegFejl(sortedNumber));
+      }
+    }
+    return sortedSchools;
   }
 
 }

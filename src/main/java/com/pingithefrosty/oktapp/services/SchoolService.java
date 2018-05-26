@@ -15,6 +15,8 @@ public interface SchoolService {
   void addAllSchoolsByOne (ArrayList<School> allSchools);
   List<School> getAllSchoolsByEv(int ev);
   List<School> sortByAbc(ArrayList<School> someSchools);
-  List<School> sortByNumber(ArrayList<School> someSchools);
+  List<School> sortByNumber(ArrayList<School> someSchools, String field);
+  List<School> reverseSortByAbc(ArrayList<School> someSchools);
+  List<School> reverseSortByNumber(ArrayList<School> someSchools, String field);
 
 }
