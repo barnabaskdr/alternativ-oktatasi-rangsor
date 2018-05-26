@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface SchoolRepository extends CrudRepository<School, Integer> {
   ArrayList<School> getAllByEv(int ev);
+  School findSchoolByIskolaNeve(String nev);
 
 }

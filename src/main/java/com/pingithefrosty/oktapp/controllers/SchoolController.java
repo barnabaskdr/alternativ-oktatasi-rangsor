@@ -1,5 +1,7 @@
 package com.pingithefrosty.oktapp.controllers;
 
+import com.pingithefrosty.oktapp.collections.Telepulesek;
+import com.pingithefrosty.oktapp.collections.Years;
 import com.pingithefrosty.oktapp.models.School;
 import com.pingithefrosty.oktapp.services.DataImportService;
 import com.pingithefrosty.oktapp.services.SchoolService;
@@ -17,8 +19,21 @@ import java.util.List;
 @Controller
 public class SchoolController {
 
-  @Autowired
+  final
   SchoolService schoolService;
+
+  final
+  Years years;
+
+  final
+  Telepulesek telepulesek;
+
+  @Autowired
+  public SchoolController(SchoolService schoolService, Years years, Telepulesek telepulesek) {
+    this.schoolService = schoolService;
+    this.years = years;
+    this.telepulesek = telepulesek;
+  }
 
   @GetMapping("/")
   public String showStartPage(Model model) {
@@ -33,14 +48,16 @@ public class SchoolController {
   }
 
   @GetMapping("/schools/{ev}")
-  public String searchSchools(@PathVariable int ev, Model model) {
-    List<School> schools = schoolService.getAllSchoolsByEv(ev);
+  public String searchSchools(@PathVariable String ev, Model model) {
+    List<School> schools = schoolService.getAllSchoolsByEv(Integer.parseInt(ev));
     model.addAttribute("schools", schools);
     return "schoolList";
   }
 
   @GetMapping("/search")
   public String showSearch(Model model) {
+    model.addAttribute("yearTypes", years.getYearTypes());
+    model.addAttribute("telepulesTypes", telepulesek.getTelepulesTypes());
     return "searchPage";
   }
 

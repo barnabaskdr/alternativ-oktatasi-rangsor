@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -44,6 +45,33 @@ public class SchoolServiceImpl implements SchoolService{
   @Override
   public List<School> getAllSchoolsByEv(int ev) {
     return schoolRepository.getAllByEv(ev);
+  }
+
+  @Override
+  public List<School> sortByAbc(ArrayList<School> someSchools) {
+    return abcSortedSchoolsFromSortedNames(sortedNamesFromSchools(someSchools));
+  }
+
+  private ArrayList<String> sortedNamesFromSchools(ArrayList<School> someSchools) {
+    ArrayList<String> schoolNames = new ArrayList<>();
+    for (School someSchool : someSchools) {
+      schoolNames.add(someSchool.getIskolaNeve());
+    }
+    Collections.sort(schoolNames);
+    return schoolNames;
+  }
+
+  private List<School> abcSortedSchoolsFromSortedNames(ArrayList<String> sortedNames) {
+    ArrayList<School> sortedSchools = new ArrayList<>();
+    for (String sortedName : sortedNames) {
+      sortedSchools.add(schoolRepository.findSchoolByIskolaNeve(sortedName));
+    }
+    return sortedSchools;
+  }
+
+  @Override
+  public List<School> sortByNumber(ArrayList<School> someSchools) {
+    return null;
   }
 
 }
