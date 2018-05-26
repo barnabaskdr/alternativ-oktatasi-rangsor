@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -41,8 +42,26 @@ public class SchoolController {
   }
 
   @GetMapping("/schools")
-  public String showSchools(Model model) {
-    List<School> schools = schoolService.getAllSchools();
+  public String showSchools(@RequestParam(value = "nev", required = false, defaultValue = "0") int nev,
+                            @RequestParam(value = "matek", required = false, defaultValue = "0") int matek,
+                            @RequestParam(value = "matek", required = false, defaultValue = "0") int szoveg, Model model) {
+    ArrayList<School> allSchools = schoolService.getAllSchoolsAsArray();
+    List<School> schools = new ArrayList<>();
+    if (nev == 0 || matek == 0 || szoveg == 0) {
+      schools.addAll(schoolService.getAllSchools());
+    } else if (nev == 1) {
+      schools.addAll(schoolService.sortByAbc(allSchools));
+    } else if (nev == 2) {
+      schools.addAll(schoolService.reverseSortByAbc(allSchools));
+    } else if (matek == 1) {
+      schools.addAll(schoolService.sortByNumber(allSchools, "matek"));
+    } else if (matek == 2) {
+      schools.addAll(schoolService.reverseSortByNumber(allSchools, "matek"));
+    } else if (szoveg == 1) {
+      schools.addAll(schoolService.sortByNumber(allSchools, "szoveg"));
+    } else if (szoveg == 2) {
+      schools.addAll(schoolService.reverseSortByNumber(allSchools, "szoveg"));
+    }
     model.addAttribute("schools", schools);
     return "schoolList";
   }

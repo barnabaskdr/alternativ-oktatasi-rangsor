@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public interface SchoolService {
   List<School> getAllSchools();
+  ArrayList<School> getAllSchoolsAsArray();
   School getSchoolById(int id);
   List<School> findByName(String name);
   void addAllSchools(ArrayList<School> allSchools);

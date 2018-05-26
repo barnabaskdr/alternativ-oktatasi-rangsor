@@ -21,6 +21,11 @@ public class SchoolServiceImpl implements SchoolService{
   }
 
   @Override
+  public ArrayList<School> getAllSchoolsAsArray() {
+    return (ArrayList<School>) schoolRepository.findAll();
+  }
+
+  @Override
   public School getSchoolById(int id) {
     return schoolRepository.findOne(id);
   }
