@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @Service
 public class DataImportService {
-  public static ArrayList<School> schoolList = new ArrayList<>();
+/*  public static ArrayList<School> schoolList = new ArrayList<>();
   public static ArrayList<String> schoolsAsString = new ArrayList<>();
   public static final String CSVSEPARATOR = "\\|";
 
@@ -20,11 +20,11 @@ public class DataImportService {
   static
   SchoolService schoolService;
 
-/*  public static void startImport() {
+*//*  public static void startImport() {
     importFile();
     createSchoolObjects();
     schoolService.addAllSchools(schoolList);
-  }*/
+  }*//*
 
   private static void importFile() {
     String csvFile = "C:\\Users\\Asus\\Git\\alternativ-oktatasi-rangsor\\data\\rangsor.csv";
@@ -53,6 +53,6 @@ public class DataImportService {
       school.setEv(Integer.parseInt(columns[8]));
       schoolList.add(school);
     }
-  }
+  }*/
 
 }

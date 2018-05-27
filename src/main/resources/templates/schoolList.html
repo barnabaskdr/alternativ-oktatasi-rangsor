@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>List of Todos</title>
+    <title>Alternatív Oktatási Rangsor App</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8" />
@@ -24,13 +24,14 @@
     </script>
 </head>
 <body class="container-fluid">
+    <p> </p>
     <div class="container">
         <form action="#" th:action="@{/}" method="get">
             <input class="btn btn-default" type="submit" value="Vissza a kezdőoldalra"/>
         </form>
     </div>
     <div class="container">
-        <h1>Schools</h1>
+        <h1>Ranglista</h1>
     </div>
     <div class="container form-group">
         <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
@@ -40,22 +41,44 @@
             <table style="width:100%" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Iskola <a href="/schools?search=10">&uarr;</a> <a href="/schools?search=11">&darr;</a></th>
-                        <th>Település</th>
-                        <th>Matek eredmény <a href="/schools?search=20">&uarr;</a> <a href="/schools?search=21">&darr;</a></th>
-                        <th>Szövegértés eredmény <a href="/schools?search=30">&uarr;</a> <a href="/schools?search=31">&darr;</a></th>
-                        <th>Kitöltők száma</th>
+                        <th> </th>
+                        <th>Iskola<a href="/schools?search=10">&uarr;</a> <a href="/schools?search=11">&darr;</a></th>
+                        <th>Település<a href="/schools?search=20">&uarr;</a> <a href="/schools?search=21">&darr;</a></th>
                         <th>Év</th>
+                        <th>Mat fejl átlag<a href="/schools?search=30">&uarr;</a> <a href="/schools?search=31">&darr;</a></th>
+                        <th>Szöv fejl atlag<a href="/schools?search=40">&uarr;</a> <a href="/schools?search=41">&darr;</a></th>
+                        <th>Mat fejl al csh<a href="/schools?search=50">&uarr;</a> <a href="/schools?search=51">&darr;</a></th>
+                        <th>Szöv fejl al csh<a href="/schools?search=60">&uarr;</a> <a href="/schools?search=61">&darr;</a></th>
+                        <th>Mat fejl mag csh<a href="/schools?search=70">&uarr;</a> <a href="/schools?search=71">&darr;</a></th>
+                        <th>Szöv fejl mag csh<a href="/schools?search=80">&uarr;</a> <a href="/schools?search=81">&darr;</a></th>
+                        <th>Kitöltők </th>
+                        <th>Kitöltők al csh</th>
+                        <th>Kitöltők mag csh</th>
+                        <th>Családiháttér átlag<a href="/schools?search=90">&uarr;</a> <a href="/schools?search=91">&darr;</a></th>
+                        <th>Családiháttér variancia<a href="/schools?search=550">&uarr;</a> <a href="/schools?search=551">&darr;</a></th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
                     <tr th:each="school:${schools}">
+                        <td>
+                            <form action="#" th:action="@{/schools/} + *{school.iskolaId}" method="get">
+                                <input class="btn btn-primary" type="submit" value="Adatlap"/>
+                            </form>
+                        </td>
                         <td th:text="${school.iskolaNeve}" />
-                        <td th:text="${school.telepulesNeve}" />
-                        <td th:text="${school.matekFejl}" />
-                        <td th:text="${school.szovegFejl}" />
-                        <td th:text="${school.n}" />
+                        <td th:text="${school.telepules}" />
                         <td th:text="${school.ev}" />
+                        <td th:text="${school.matekFejlAtl}" />
+                        <td th:text="${school.szovegFejlAtl}" />
+                        <td th:text="${school.matekFejlAlCsh}" />
+                        <td th:text="${school.szovegFejlAlCsh}" />
+                        <td th:text="${school.matekFejlMagCsh}" />
+                        <td th:text="${school.szovegFejlMagCsh}" />
+                        <td th:text="${school.kitoltok}" />
+                        <td th:text="${school.kitoltokAlCsh}" />
+                        <td th:text="${school.kitoltokMagCsh}" />
+                        <td th:text="${school.csaladiAtl}" />
+                        <td th:text="${school.csaladiVar}" />
                     </tr>
                 </tbody>
             </table>

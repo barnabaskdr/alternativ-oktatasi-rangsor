@@ -13,9 +13,11 @@ public interface SchoolService {
   School getSchoolById(int id);
   List<School> findByName(String name);
   List<School> getAllSchoolsByEv(int ev);
-  List<School> sortByAbc(ArrayList<School> someSchools);
-  List<School> sortByNumber(ArrayList<School> someSchools, String field);
-  List<School> reverseSortByAbc(ArrayList<School> someSchools);
-  List<School> reverseSortByNumber(ArrayList<School> someSchools, String field);
+  List<School> findByIskolaId(int iskolaId);
+  //List<School> sortByAbc(ArrayList<School> someSchools);
+  //List<School> sortByNumber(ArrayList<School> someSchools, String field);
+  //List<School> reverseSortByAbc(ArrayList<School> someSchools);
+  //List<School> reverseSortByNumber(ArrayList<School> someSchools, String field);
+  List<School> sortItAccordingly(List<School> someSchools, int field);
 
 }
