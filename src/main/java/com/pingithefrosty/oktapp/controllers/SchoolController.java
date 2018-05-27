@@ -42,28 +42,34 @@ public class SchoolController {
   }
 
   @GetMapping("/schools")
-  public String showSchools(@RequestParam(value = "nev", required = false, defaultValue = "0") int nev,
+  public String showSchools(@RequestParam(value = "search", required = false, defaultValue = "0") int search,
                             @RequestParam(value = "matek", required = false, defaultValue = "0") int matek,
                             @RequestParam(value = "matek", required = false, defaultValue = "0") int szoveg, Model model) {
     ArrayList<School> allSchools = schoolService.getAllSchoolsAsArray();
     List<School> schools = new ArrayList<>();
-    if (nev == 0 || matek == 0 || szoveg == 0) {
-      schools.addAll(schoolService.getAllSchools());
-    } else if (nev == 1) {
+    if (search == 10) {
       schools.addAll(schoolService.sortByAbc(allSchools));
-    } else if (nev == 2) {
+    } else if (search == 11) {
       schools.addAll(schoolService.reverseSortByAbc(allSchools));
-    } else if (matek == 1) {
+    } else if (search == 20) {
       schools.addAll(schoolService.sortByNumber(allSchools, "matek"));
-    } else if (matek == 2) {
+    } else if (search == 21) {
       schools.addAll(schoolService.reverseSortByNumber(allSchools, "matek"));
-    } else if (szoveg == 1) {
+    } else if (search == 30) {
       schools.addAll(schoolService.sortByNumber(allSchools, "szoveg"));
-    } else if (szoveg == 2) {
+    } else if (szoveg == 31) {
       schools.addAll(schoolService.reverseSortByNumber(allSchools, "szoveg"));
+    } else {
+      schools.addAll(allSchools);
     }
     model.addAttribute("schools", schools);
     return "schoolList";
+  }
+
+  @PostMapping("/schools/{iskolaId}")
+  public String displaySchool() {
+
+    return null;
   }
 
   @GetMapping("/schools/{ev}")

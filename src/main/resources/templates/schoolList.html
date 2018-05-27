@@ -13,10 +13,10 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
-            $("#myInput").on("keyup", function () {
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
+                $("#myTable tr").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
@@ -40,10 +40,10 @@
             <table style="width:100%" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Iskola <a href="/schools?nev=1">&uarr;</a> <a href="/schools?nev=2">&darr;</a></th>
+                        <th>Iskola <a href="/schools?search=10">&uarr;</a> <a href="/schools?search=11">&darr;</a></th>
                         <th>Település</th>
-                        <th>Matek eredmény <a href="/schools?matek=1">&uarr;</a> <a href="/schools?matek=2">&darr;</a></th>
-                        <th>Szövegértés eredmény <a href="/schools?szoveg=1">&uarr;</a> <a href="/schools?szoveg=2">&darr;</a></th>
+                        <th>Matek eredmény <a href="/schools?search=20">&uarr;</a> <a href="/schools?search=21">&darr;</a></th>
+                        <th>Szövegértés eredmény <a href="/schools?search=30">&uarr;</a> <a href="/schools?search=31">&darr;</a></th>
                         <th>Kitöltők száma</th>
                         <th>Év</th>
                     </tr>

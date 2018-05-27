@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class SchoolServiceImpl implements SchoolService{
+public class SchoolServiceImpl implements SchoolService {
 
   @Autowired
   SchoolRepository schoolRepository;
@@ -54,70 +54,34 @@ public class SchoolServiceImpl implements SchoolService{
 
   @Override
   public List<School> sortByAbc(ArrayList<School> someSchools) {
-    return abcSortedSchoolsFromSortedNames(sortedNamesFromSchools(someSchools));
-  }
-
-  private ArrayList<String> sortedNamesFromSchools(ArrayList<School> someSchools) {
-    ArrayList<String> schoolNames = new ArrayList<>();
-    for (School someSchool : someSchools) {
-      schoolNames.add(someSchool.getIskolaNeve());
-    }
-    Collections.sort(schoolNames);
-    return schoolNames;
-  }
-
-  private List<School> abcSortedSchoolsFromSortedNames(ArrayList<String> sortedNames) {
-    ArrayList<School> sortedSchools = new ArrayList<>();
-    for (String sortedName : sortedNames) {
-      sortedSchools.add(schoolRepository.findSchoolByIskolaNeve(sortedName));
-    }
-    return sortedSchools;
+    someSchools.sort((School x, School y) -> x.getIskolaNeve().compareTo(y.getIskolaNeve()));
+    return someSchools;
   }
 
   @Override
   public List<School> sortByNumber(ArrayList<School> someSchools, String field) {
-    return numSortedSchoolsFromSortedNumbers(sortedNumbersFromSchools(someSchools, field), field);
+    if (field.equals("matek")) {
+      someSchools.sort((School x, School y) -> x.getMatekFejl().compareTo(y.getMatekFejl()));
+    } else if (field.equals("szoveg")) {
+      someSchools.sort((School x, School y) -> x.getSzovegFejl().compareTo(y.getSzovegFejl()));
+    }
+    return someSchools;
   }
 
   @Override
   public List<School> reverseSortByAbc(ArrayList<School> someSchools) {
-    Collections.reverse(sortByAbc(someSchools));
+    someSchools.sort((School x, School y) -> y.getIskolaNeve().compareTo(x.getIskolaNeve()));
     return someSchools;
   }
 
   @Override
   public List<School> reverseSortByNumber(ArrayList<School> someSchools, String field) {
-    Collections.reverse(sortByNumber(someSchools, field));
+    if (field.equals("matek")) {
+      someSchools.sort((School x, School y) -> y.getMatekFejl().compareTo(x.getMatekFejl()));
+    } else if (field.equals("szoveg")) {
+      someSchools.sort((School x, School y) -> y.getSzovegFejl().compareTo(x.getSzovegFejl()));
+    }
     return someSchools;
-  }
-
-  private ArrayList<String> sortedNumbersFromSchools(ArrayList<School> someSchools, String field) {
-    ArrayList<String> schoolNumbers = new ArrayList<>();
-    if (field.equals("matek")) {
-      for (School someSchool : someSchools) {
-        schoolNumbers.add(someSchool.getMatekFejl());
-      }
-    } else if (field.equals("szoveg")) {
-        for (School someSchool : someSchools) {
-          schoolNumbers.add(someSchool.getSzovegFejl());
-      }
-    }
-    Collections.sort(schoolNumbers);
-    return schoolNumbers;
-  }
-
-  private List<School> numSortedSchoolsFromSortedNumbers(ArrayList<String> sortedNumbers, String field) {
-    ArrayList<School> sortedSchools = new ArrayList<>();
-    if (field.equals("matek")) {
-      for (String sortedNumber : sortedNumbers) {
-        sortedSchools.add(schoolRepository.findSchoolByMatekFejl(sortedNumber));
-      }
-    } else if (field.equals("szoveg")) {
-      for (String sortedNumber : sortedNumbers) {
-        sortedSchools.add(schoolRepository.findSchoolBySzovegFejl(sortedNumber));
-      }
-    }
-    return sortedSchools;
   }
 
 }
