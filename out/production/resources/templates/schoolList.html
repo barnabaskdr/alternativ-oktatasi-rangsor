@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>List of Todos</title>
+    <title>Alternatív Oktatási Rangsor App</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8" />
@@ -31,7 +31,11 @@
         </form>
     </div>
     <div class="container">
-        <h1>Schools</h1>
+        <h1>Ranglista</h1>
+    </div>
+    <p> </p>
+    <div class="container">
+        <h2>Szűrés</h2>
     </div>
     <div class="container form-group">
         <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
@@ -62,7 +66,7 @@
                     <tr th:each="school:${schools}">
                         <td>
                             <form action="#" th:action="@{/schools/} + *{school.iskolaId}" method="get">
-                                <input class="btn btn-primary" type="submit" value="Iskola adatlap"/>
+                                <input class="btn btn-primary" type="submit" value="Adatlap"/>
                             </form>
                         </td>
                         <td th:text="${school.iskolaNeve}" />

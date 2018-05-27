@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AltOktApp</title>
+    <title>Alternatív Oktatási Rangsor App</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="utf-8" />
@@ -11,19 +11,11 @@
         <h1>Üdvözlet</h1>
     </div>
     <div class="container">
-        <p>Ez a Mr. 3% csapat Hackatlon appja.</p>
+        <p>Ez egy pedagógiai hozzáadott-érték alapján képzett alternatív középiskolai rangsor. A szokásos kimeneti mutatók (pl. érettségi eredmény) helyett, az esélyegyenlőség szempontjából relevánsak alapján kerültek az intézmények sorba rendezve.</p>
     </div>
     <div class="container">
         <form action="#" th:action="@{/schools/}" method="get">
             <input class="btn btn-primary" type="submit" value="Ranglistát nézek"/>
-        </form>
-    </div>
-    <p> </p>
-    <div>
-    </div>
-    <div class="container">
-        <form action="#" th:action="@{/search/}" method="get">
-            <input class="btn btn-success" type="submit" value="Iskolát keresek"/>
         </form>
     </div>
 </body>
